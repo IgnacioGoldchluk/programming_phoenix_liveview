@@ -24,12 +24,8 @@ defmodule PentoWeb.WrongLive do
   end
 
   defp initial_game_state(socket) do
-    assign(socket,
-      score: 0,
-      message: "Make a guess:",
-      correct: Enum.random(1..10) |> to_string,
-      won: false
-    )
+    number = Enum.random(1..10) |> to_string()
+    assign(socket, score: 0, message: "Make a guess:", correct: number, won: false)
   end
 
   def handle_params(_params, _uri, socket) do
@@ -45,36 +41,17 @@ defmodule PentoWeb.WrongLive do
 
     case guess do
       ^correct_number -> handle_correct(values, socket)
-      _ -> handle_incorrect(values, socket)
+      _incorrect_number -> handle_incorrect(values, socket)
     end
   end
 
   defp handle_incorrect(%{"number" => guess}, socket) do
     message = "Your guess: #{guess}. Wrong. Guess again. "
-    score = socket.assigns.score - 1
-
-    {
-      :noreply,
-      assign(
-        socket,
-        message: message,
-        score: score
-      )
-    }
+    {:noreply, assign(socket, message: message, score: socket.assigns.score - 1)}
   end
 
   defp handle_correct(%{"number" => guess}, socket) do
     message = "You won! The number was #{guess}"
-    score = socket.assigns.score + 10
-
-    {
-      :noreply,
-      assign(
-        socket,
-        message: message,
-        score: score,
-        won: true
-      )
-    }
+    {:noreply, assign(socket, message: message, score: socket.assigns.score + 10, won: true)}
   end
 end

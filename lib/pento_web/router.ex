@@ -18,9 +18,12 @@ defmodule PentoWeb.Router do
   end
 
   scope "/", PentoWeb do
-    pipe_through :browser
+    pipe_through [:browser, :to_guess_if_user_is_authenticated]
 
-    get "/", PageController, :home
+    live_session :to_guess_if_user_is_authenticated,
+      on_mount: [{PentoWeb.UserAuth, :to_guess_if_user_is_authenticated}] do
+      get "/", PageController, :home
+    end
   end
 
   # Other scopes may use custom stacks.

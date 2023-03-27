@@ -193,6 +193,16 @@ defmodule PentoWeb.UserAuth do
     end
   end
 
+  def to_guess_if_user_is_authenticated(conn, _opts) do
+    if conn.assigns[:current_user] do
+      conn
+      |> redirect(to: guess_path(conn))
+      |> halt()
+    else
+      conn
+    end
+  end
+
   @doc """
   Used for routes that require the user to be authenticated.
 
@@ -224,4 +234,5 @@ defmodule PentoWeb.UserAuth do
   defp maybe_store_return_to(conn), do: conn
 
   defp signed_in_path(_conn), do: ~p"/"
+  defp guess_path(_conn), do: ~p"/guess"
 end

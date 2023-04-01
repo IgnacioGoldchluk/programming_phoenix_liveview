@@ -1,0 +1,7 @@
+<Component.hero content="Survey">
+  <%= if @demographic do %>
+    <DemographicLive.Show.details demographic={@demographic} />
+  <% else %>
+    <h2>Demographic Form coming soon!</h2>
+  <% end %>
+</Component.hero>

@@ -1,7 +1,14 @@
 <Component.hero content="Survey">
   <%= if @demographic do %>
     <DemographicLive.Show.details demographic={@demographic} />
+    <hr />
+    <br />
+    <RatingLive.Index.product_list products={@products} current_user={@current_user} />
   <% else %>
-    <h2>Demographic Form coming soon!</h2>
+    <.live_component
+      module={DemographicLive.Form}
+      current_user={@current_user}
+      id="demographic-form"
+    />
   <% end %>
 </Component.hero>

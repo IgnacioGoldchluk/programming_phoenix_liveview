@@ -11,7 +11,7 @@ defmodule PentoWeb.DemographicLive.Show do
     ~H"""
     <div>
       <h2 class="font-medium text-2xl">Demographics <%= raw("&#x2713;") %></h2>
-      <CoreComponents.table rows={[@demographic]} id={@demographic.user_id}>
+      <CoreComponents.table rows={[@demographic]} id="#{@demographic.user_id}">
         <:col :let={demographic} label="Gender">
           <%= demographic.gender %>
         </:col>

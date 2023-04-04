@@ -54,6 +54,11 @@ defmodule Pento.Catalog.Product.Query do
     |> apply_age_group_filter(filter)
   end
 
+  def with_zero_ratings(query \\ base()) do
+    query
+    |> select([p], {p.name, 0})
+  end
+
   defp apply_age_group_filter(query, "18 and under") do
     birth_year = DateTime.utc_now().year - 18
 

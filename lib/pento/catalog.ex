@@ -114,4 +114,9 @@ defmodule Pento.Catalog do
     |> Product.Query.filter_by_age_group(age_group_filter)
     |> Repo.all()
   end
+
+  def products_with_zero_ratings() do
+    Product.Query.with_zero_ratings()
+    |> Repo.all()
+  end
 end

@@ -17,12 +17,20 @@ defmodule PentoWeb.Admin.SurveyResultsLive do
     }
   end
 
+  def assign_age_group_filter(%{assigns: %{age_group_filter: age_group_filter}} = socket) do
+    assign(socket, :age_group_filter, age_group_filter)
+  end
+
   def assign_age_group_filter(socket) do
     assign(socket, :age_group_filter, "all")
   end
 
   def assign_age_group_filter(socket, age_group_filter) do
     assign(socket, :age_group_filter, age_group_filter)
+  end
+
+  def assign_gender_filter(%{assigns: %{gender_filter: gender_filter}} = socket) do
+    assign(socket, :gender_filter, gender_filter)
   end
 
   def assign_gender_filter(socket) do

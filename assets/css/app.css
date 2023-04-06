@@ -2,7 +2,7 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-/* This file is for your main application CSS */
+/* This file is for your main application CSS
 .survey-component-container {
     background-color: #fefefe;
     padding: 20px;
@@ -134,4 +134,4 @@ h3 {
 .user-activity-component ul,
 p {
     padding-left: 20px;
-}
+} */

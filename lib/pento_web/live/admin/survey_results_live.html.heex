@@ -4,7 +4,9 @@
     <div class="container my-4 mx-4 grid grid-cols-2">
       <div>
         <.form
-          for={:gender_filter}
+          :let={_f}
+          for={%{}}
+          as={:gender_filter}
           phx-change="gender_filter"
           phx-target={@myself}
           id="gender-form"
@@ -21,7 +23,9 @@
       </div>
       <div>
         <.form
-          for={:age_group_filter}
+          :let={_f}
+          for={%{}}
+          as={:age_group_filter}
           phx-change="age_group_filter"
           phx-target={@myself}
           id="age-group-form"

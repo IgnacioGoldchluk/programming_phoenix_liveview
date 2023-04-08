@@ -6,11 +6,11 @@ defmodule PentoWeb.Admin.DashboardLive do
 
   @survey_results_topic "survey_results"
   @user_activity_topic "user_activity"
-
+  @survey_activity_topic "survey_activity"
   def mount(_params, _session, socket) do
     if connected?(socket) do
-      Endpoint.subscribe(@survey_results_topic)
-      Endpoint.subscribe(@user_activity_topic)
+      [@survey_results_topic, @user_activity_topic, @survey_activity_topic]
+      |> Enum.each(&Endpoint.subscribe/1)
     end
 
     {

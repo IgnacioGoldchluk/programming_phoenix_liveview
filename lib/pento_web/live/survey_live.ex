@@ -3,7 +3,7 @@ defmodule PentoWeb.SurveyLive do
 
   alias __MODULE__.Component
   alias Pento.{Survey, Catalog}
-  alias PentoWeb.{DemographicLive, RatingLive, Endpoint}
+  alias PentoWeb.{DemographicLive, RatingLive, Endpoint, Presence}
 
   @survey_results_topic "survey_results"
 
@@ -14,6 +14,17 @@ defmodule PentoWeb.SurveyLive do
       |> assign_demographic()
       |> assign_products()
     }
+  end
+
+  def handle_params(_, _, socket) do
+    maybe_track_user(socket)
+    {:noreply, socket}
+  end
+
+  defp maybe_track_user(%{assigns: %{current_user: current_user}} = socket) do
+    if connected?(socket) do
+      Presence.track_user_taking_survey(self(), current_user.email)
+    end
   end
 
   def handle_info({:created_demographic, demographic}, socket) do

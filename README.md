@@ -1,18 +1,9 @@
-# Pento
+# This is not the official code for the book
 
-To start your Phoenix server:
-
-  * Run `mix setup` to install and setup dependencies
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
-
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
-
-## Learn more
-
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+# Programming Phoenix Liveview code (B9)
+* Updated for LiveView 0.18.16.
+* Improved form components according to latest LV best practices and auto generated code.
+* Fixed typos/syntax errors from the code presented in the book.
+* Removed CSS from Chapter 8 (dashboard) since it ruins the Survey liveview.
+* Contains some "Give it a Try" exercises (the ones I felt like doing).
+* Code is fully functional except for Chapter 13, the game does not work :grimacing:.

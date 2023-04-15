@@ -56,7 +56,7 @@ defmodule PentoWeb.GameLive.Component do
   attr :shape_names, :list, required: true
   attr :completed_shape_names, :list, default: []
 
-  def palette(%{shape_names: shape_names} = assigns) do
+  def palette(assigns) do
     ~H"""
     <div id="palette">
       <.canvas view_box="0 0 500 125">

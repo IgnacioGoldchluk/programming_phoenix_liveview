@@ -80,6 +80,7 @@ defmodule PentoWeb.Router do
       live "/products/:id/show/edit", ProductLive.Show, :edit
 
       live "/game/:puzzle", GameLive
+      live "/play", GameLive.Picker
     end
   end
 

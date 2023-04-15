@@ -23,7 +23,7 @@ defmodule Pento.Game.Board do
   defp palette(:small), do: [:u, :v, :p]
 
   def to_shape(board) do
-    Shape.__struct__(color: :pruple, name: :board, points: board.points)
+    Shape.__struct__(color: :purple, name: :board, points: board.points)
   end
 
   def to_shapes(board) do
@@ -41,6 +41,7 @@ defmodule Pento.Game.Board do
   def active?(board, shape_name) when is_binary(shape_name) do
     active?(board, String.to_existing_atom(shape_name))
   end
+
   def active?(%{active_pento: %{name: shape_name}}, shape_name), do: true
   def active?(_board, _shape_name), do: false
 end
